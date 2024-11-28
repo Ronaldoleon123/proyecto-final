@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 interface FormSignUp {
   email: FormControl<string | null >;
@@ -16,9 +16,19 @@ export  class RegistroComponent {
 
   private _formBuilder = inject(FormBuilder);
 
-  form = this._formBuilder.group<any>({
+  form = this._formBuilder.group<FormSignUp>({
 
-    email: [''],
-    password: [''],
+    email: this._formBuilder.control('', [
+        Validators.required,
+        Validators.email,
+    ]),
+    password: this._formBuilder.control('', Validators.required),
   });
+
+  submit(){
+    if (this.form.invalid) return;
+    const {email, password} = this.form.value;
+    if( !email || !password) return;
+    console.log({email, password});
+}
 }
