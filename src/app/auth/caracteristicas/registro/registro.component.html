@@ -15,14 +15,21 @@
                       <label for="email">Tu correo</label>
                       <input type="email" id="email" name="email" placeholder="name@company.com" required
                       formControlName="email">
-                      <small class="error-message">Este campo es requerido</small>
+                      @if(isRequired('email')){
+
+                        <small >Este campo es requerido</small>
+                      }
                       <small class="error-message">El correo debe ser válido</small>
                   </div>
                   <div class="form-group">
                       <label for="password">Contraseña</label>
                       <input type="password" id="password" name="password" placeholder="••••••••" required
                       formControlName="password">
-                      <small class="error-message">Este campo es requerido</small>
+                      @if(isRequired('password')){
+
+                        <small >Este campo es requerido</small>
+                      }
+                      
                   </div>
                   <button type="submit" class="submit-button">Crear</button>
                   <p class="footer-text">

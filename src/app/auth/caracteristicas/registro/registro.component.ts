@@ -1,5 +1,10 @@
 import { Component, inject } from '@angular/core';
+import { hasCustomClaim } from '@angular/fire/auth-guard';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../data-access/auth.service';
+import { toast } from 'ngx-sonner';
+
+
 
 interface FormSignUp {
   email: FormControl<string | null >;
@@ -15,6 +20,12 @@ interface FormSignUp {
 export  class RegistroComponent {
 
   private _formBuilder = inject(FormBuilder);
+  private _authService = inject(AuthService);
+
+   isRequired(field: 'email' | 'password'){
+    return this.form.get(field)?.hasError('required') && this.form.get(field)?.touched;
+  }
+
 
   form = this._formBuilder.group<FormSignUp>({
 
@@ -25,10 +36,19 @@ export  class RegistroComponent {
     password: this._formBuilder.control('', Validators.required),
   });
 
-  submit(){
+  async submit(){
     if (this.form.invalid) return;
-    const {email, password} = this.form.value;
+    try {
+
+      const {email, password} = this.form.value;
     if( !email || !password) return;
     console.log({email, password});
+   await this._authService.signUp({email, password});
+
+   toast.success('Usuario creado correctamente');
+    } catch (error) {
+      toast.error('Ocurrio un error');
+
+    }
 }
 }

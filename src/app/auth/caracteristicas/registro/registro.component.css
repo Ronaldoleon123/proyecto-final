@@ -142,3 +142,10 @@ body {
 .sign-in-link:hover {
   text-decoration: underline;
 }
+small {
+  color: red; /* Color rojo */
+  font-size: 12px; /* Tamaño pequeño */
+  font-weight: normal; /* Peso normal */
+  margin-top: 5px; /* Espaciado superior opcional */
+  display: block; /* Asegura que se muestre en una línea nueva */
+}
