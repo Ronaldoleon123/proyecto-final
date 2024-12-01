@@ -5,6 +5,14 @@ export const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('./auth/caracteristicas/auth.routes').then(m =>m.default),
     },
-    { path: '', redirectTo: 'auth/registro', pathMatch: 'full' }, // Redirigir a una ruta inicial
-    { path: '**', redirectTo: 'auth/registro' }, 
+
+    {path: 'tasks',
+        loadChildren: () => import('./task/caracteristicas/task.routes').then(m =>m.default),
+        
+    },
+
+    {path: '**',
+        redirectTo: '/tasks',
+    }
+    
 ];

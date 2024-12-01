@@ -3,6 +3,7 @@ import { hasCustomClaim } from '@angular/fire/auth-guard';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../data-access/auth.service';
 import { toast } from 'ngx-sonner';
+import { Router } from '@angular/router';
 
 
 
@@ -21,6 +22,7 @@ export  class RegistroComponent {
 
   private _formBuilder = inject(FormBuilder);
   private _authService = inject(AuthService);
+  private _router = inject(Router);
 
    isRequired(field: 'email' | 'password'){
     return this.form.get(field)?.hasError('required') && this.form.get(field)?.touched;
@@ -46,6 +48,7 @@ export  class RegistroComponent {
    await this._authService.signUp({email, password});
 
    toast.success('Usuario creado correctamente');
+   this._router.navigateByUrl('/tasks');
     } catch (error) {
       toast.error('Ocurrio un error');
 
