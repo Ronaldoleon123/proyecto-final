@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
-export  class TaskListComponent {
-
-}
+export  class TaskListComponent {}

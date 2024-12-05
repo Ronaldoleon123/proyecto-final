@@ -3,7 +3,8 @@ import { hasCustomClaim } from '@angular/fire/auth-guard';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../data-access/auth.service';
 import { toast } from 'ngx-sonner';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { hasEmailError, isRequired } from '../../utils/validators';
 
 
 
@@ -14,7 +15,7 @@ interface FormSignUp {
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -27,6 +28,11 @@ export  class RegistroComponent {
    isRequired(field: 'email' | 'password'){
     return this.form.get(field)?.hasError('required') && this.form.get(field)?.touched;
   }
+   
+   hasEmailError(){
+    return hasEmailError(this.form);
+   }
+
 
 
   form = this._formBuilder.group<FormSignUp>({
@@ -44,7 +50,7 @@ export  class RegistroComponent {
 
       const {email, password} = this.form.value;
     if( !email || !password) return;
-    console.log({email, password});
+   /* console.log({email, password});*/
    await this._authService.signUp({email, password});
 
    toast.success('Usuario creado correctamente');
