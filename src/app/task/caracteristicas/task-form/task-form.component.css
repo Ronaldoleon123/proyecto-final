@@ -1,0 +1,123 @@
+
+.container {
+    margin: 0 auto; /* Centra horizontalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    padding: 0 16px; /* Espaciado interno a los lados */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+  }
+  
+  /* Contenedor del formulario */
+.form-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Formulario */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Grupo del formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Etiqueta */
+.label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827; /* Texto oscuro */
+}
+
+/* Input */
+.input {
+  padding: 10px;
+  border: 1px solid #d1d5db; /* Gris claro */
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111827;
+  background-color: #f9fafb; /* Fondo claro */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  border-color: #10b981; /* Verde */
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  outline: none;
+}
+
+/* Checkbox */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: #e5e7eb; /* Gris claro */
+  border-radius: 24px;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.checkbox-slider::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.checkbox-input:checked + .checkbox-slider {
+  background-color: #2563eb; /* Azul */
+}
+
+.checkbox-input:checked + .checkbox-slider::after {
+  transform: translateX(20px);
+}
+
+.checkbox-text {
+  font-size: 14px;
+  color: #111827;
+}
+
+/* Botón */
+.button {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #10b981; /* Verde */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #059669; /* Verde más oscuro */
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.5);
+}

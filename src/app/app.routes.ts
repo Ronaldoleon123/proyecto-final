@@ -11,6 +11,7 @@ export const routes: Routes = [
     {
         canActivateChild: [privateGuard()],
         path: 'tasks',
+        loadComponent:() => import('./shared/ui/layaout.component'),
         loadChildren: () => import('./task/caracteristicas/task.routes').then(m =>m.default),
         
     },

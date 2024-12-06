@@ -1,0 +1,11 @@
+
+body {
+    background-color: #1a1a1a; /* Gris oscuro */
+    color: #f5f5f5; /* Texto claro */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Declarar el esquema de color */
+  :root {
+    color-scheme: dark light; /* Soporte para modo oscuro y claro */
+  }

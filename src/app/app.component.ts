@@ -10,13 +10,4 @@ import { AuthStateService } from './shared/data-access/auth-state.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-
-  private _authState = inject(AuthStateService);
-  private _router = inject(Router);
-  async logOut(){
-    await this._authState.logOut();
-    this._router.navigateByUrl('/auth/inscripcion');
-
-  }
-}
+export class AppComponent {}

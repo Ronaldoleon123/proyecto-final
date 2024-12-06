@@ -1,0 +1,39 @@
+
+.container {
+    margin: 0 auto; /* Centra horizontalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    padding: 0 16px; /* Espaciado interno a los lados */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+  }
+  /* Estilos para el botón */
+.button {
+  display: inline-block;
+  margin-bottom: 16px; /* Espaciado inferior */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño del texto */
+  font-weight: 500; /* Peso del texto */
+  color: #ffffff; /* Texto blanco */
+  background-color: #047857; /* Verde oscuro */
+  border-radius: 8px; /* Bordes redondeados */
+  text-decoration: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+
+.button:hover {
+  background-color: #065f46; 
+}
+
+
+.button:focus {
+  outline: none; 
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.5); 
+}
+
+.button + .button {
+  margin-left: 8px; 
+}
+
+  
