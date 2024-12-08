@@ -1,123 +1,131 @@
-/* Contenedor del formulario */
+/* Contenedor principal del formulario */
 .form-container {
-  max-width: 500px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #4a4545;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
 }
 
-/* Estilo del formulario */
+/* Formulario */
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-/* Estilo para los campos de entrada */
-.form-group label {
-  font-size: 16px;
-  color: #333;
-  font-weight: 500;
+/* Grupo de formulario */
+.form-group {
+  margin-bottom: 20px;
 }
 
+/* Etiquetas */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* Inputs */
 input[type="text"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #dddddd;
   border-radius: 4px;
   font-size: 14px;
-  color: #f2e9e9;
+  color: #333333;
+  transition: border-color 0.3s;
 }
 
 input[type="text"]:focus {
   outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
 }
 
-/* Grupo del checkbox */
+/* Checkbox Group */
 .checkbox-group {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-/* Estilo del contenedor del checkbox */
 .checkbox-container {
   display: flex;
   align-items: center;
-  gap: 10px;
   position: relative;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-input[type="checkbox"] {
-  display: none;
-}
-
-/* Estilo del slider */
 .checkbox-slider {
   width: 40px;
   height: 20px;
-  background-color: #ccc;
-  border-radius: 20px;
+  background-color: #dddddd;
+  border-radius: 10px;
   position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  transition: background-color 0.3s;
 }
 
-.checkbox-slider::before {
+.checkbox-slider::after {
   content: "";
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
+  top: 50%;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  transform: translateY(-50%);
+  transition: transform 0.3s;
 }
 
-/* Cambios al marcar el checkbox */
 input[type="checkbox"]:checked + .checkbox-slider {
-  background-color: #4caf50;
+  background-color: #007bff;
 }
 
-input[type="checkbox"]:checked + .checkbox-slider::before {
-  transform: translateX(20px);
+input[type="checkbox"]:checked + .checkbox-slider::after {
+  transform: translate(20px, -50%);
 }
 
-/* Texto del checkbox */
 .checkbox-label {
   font-size: 14px;
-  color: #555;
+  color: #333333;
 }
 
 /* Botón */
 button {
+  width: 100%;
   padding: 12px 20px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+  background-color: #007bff;
+  color: #ffffff;
   font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #cccccc;
   cursor: not-allowed;
 }
-.error {
-  color: red;
-  font-size: 12px;
-  margin-top: 4px;
-}
 
+/* Mensajes de error */
+.error {
+  font-size: 12px;
+  color: #d9534f;
+  margin-top: 5px;
+}

@@ -16,6 +16,6 @@
       </label>
     </div>
 
-    <button type="submit" [disabled]="form.invalid">Guardar</button>
+    <button [disabled]="loading()" type="submit" [disabled]="form.invalid">{{loading()? 'Guardando...': 'Guardar'}}</button>
   </form>
 </section>

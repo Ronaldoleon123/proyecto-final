@@ -10,6 +10,10 @@ export default[
         loadComponent: () => import('./inscripcion/inscripcion.component').then(m => m.InscripcionComponent),
     },
 
-  
+    {
+        path:'recover-password',
+        loadComponent: () => import('./recover-password/recover-password.component').then(m=>m.RecoverPasswordComponent),
+    },
+
 
 ] as Routes ;
