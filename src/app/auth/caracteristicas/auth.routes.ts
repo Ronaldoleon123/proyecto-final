@@ -10,4 +10,6 @@ export default[
         loadComponent: () => import('./inscripcion/inscripcion.component').then(m => m.InscripcionComponent),
     },
 
+  
+
 ] as Routes ;

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { privateGuard, publicGuard } from './core/auth.guard';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
     {
@@ -18,6 +19,11 @@ export const routes: Routes = [
 
     {path: '**',
         redirectTo: '/tasks',
+    },
+
+    {
+        path: 'auth/forgot-password',
+        component: ForgotPasswordComponent
     },
     
 ];

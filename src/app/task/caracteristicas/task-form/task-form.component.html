@@ -1,29 +1,21 @@
 <section class="form-container">
-  <form class="form" action="#" method="POST">
-    <!-- Campo de título -->
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form">
     <div class="form-group">
-      <label for="title" class="label">Título</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        class="input"
-        placeholder="Escribe el título"
-      />
+      <label for="title">Titulo</label>
+      <input type="text" id="title" formControlName="title" />
+      <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched"  class="error">
+        El título es obligatorio.
+      </div>
     </div>
 
-    <!-- Selector de completado -->
-    <div class="form-group">
-      <label class="checkbox-label">
-        <input type="checkbox" class="checkbox-input" />
-        <div class="checkbox-slider"></div>
-        <span class="checkbox-text">Completado</span>
+    <div class="form-group checkbox-group">
+      <label class="checkbox-container">
+        <input type="checkbox" id="completed" formControlName="completed" />
+        <span class="checkbox-slider"></span>
+        <span class="checkbox-label">Completado</span>
       </label>
     </div>
 
-    <!-- Botón -->
-    <button type="submit" class="button">
-      Guardar
-    </button>
+    <button type="submit" [disabled]="form.invalid">Guardar</button>
   </form>
 </section>

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-task-form',
@@ -14,14 +14,21 @@ export  class TaskFormComponent {
 
 
   form = this._formBuilder.group({
-    Title: this._formBuilder.control('', Validators.required),
-    completed: this._formBuilder.control(false ,Validators.required),
+    title: this._formBuilder.control('', [Validators.required]),
+    completed: this._formBuilder.control(false ,[Validators.required]),
   })
 
-  submit(){
-    if(this.form.invalid) return;
+  submit() {
+    if (this.form.invalid) {
+      alert('Formulario inválido. Verifica los campos.'); // Mensaje de error amigable
+      return;
+    }
 
-    console.log(this.form.value)
+    // Imprime el valor del formulario en la consola
+    console.log('Formulario enviado:', this.form.value);
+
+    // Simula un guardado exitoso
+    alert('Tarea guardada exitosamente.');
   }
 
 
