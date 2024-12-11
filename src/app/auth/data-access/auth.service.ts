@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, user, sendPasswordResetEmail } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider,  user, sendPasswordResetEmail } from '@angular/fire/auth';
 
 export interface User{
   email: string;
@@ -22,7 +22,14 @@ export class AuthService {
 
   signIn(User: User){
     return signInWithEmailAndPassword(this._auth, User.email, User.password);
+  };
+
+  signInWithGoogle(){
+
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(this._auth, provider);
   }
+
 
   // Método para recuperar la contraseña
   recoverPassword(user: User) {

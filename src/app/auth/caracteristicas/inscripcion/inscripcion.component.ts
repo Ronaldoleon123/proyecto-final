@@ -5,6 +5,7 @@ import { toast } from 'ngx-sonner';
 import { AuthService } from '../../data-access/auth.service';
 import { isRequired,hasEmailError  } from '../../utils/validators';
 import { hasCustomClaim } from '@angular/fire/auth-guard';
+import { GoogleButtonComponent } from '../../interfaz-usuario/google-button/google-button.component';
 export interface FormSignIn {
   email: FormControl<string | null >;
   password: FormControl<string | null>;
@@ -12,7 +13,7 @@ export interface FormSignIn {
 @Component({
   selector: 'app-inscripcion',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink,GoogleButtonComponent],
   templateUrl: './inscripcion.component.html',
   styleUrl: './inscripcion.component.css'
 })
@@ -54,5 +55,15 @@ export  class InscripcionComponent {
       toast.error('Ocurrio un error');
 
     }
+}
+async submitWithGoogle() {
+  try {
+    await this._authService.signInWithGoogle();
+    toast.success('Hola nuevamente');
+    this._router.navigateByUrl('/tasks');
+  } catch (error){
+    toast.error('Ocurrio un error');
+
+  }
 }
 }

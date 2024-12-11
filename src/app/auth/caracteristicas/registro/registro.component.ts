@@ -5,6 +5,7 @@ import { AuthService } from '../../data-access/auth.service';
 import { toast } from 'ngx-sonner';
 import { Router, RouterLink } from '@angular/router';
 import { hasEmailError, isRequired } from '../../utils/validators';
+import { GoogleButtonComponent } from '../../interfaz-usuario/google-button/google-button.component';
 
 
 
@@ -15,7 +16,7 @@ interface FormSignUp {
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, GoogleButtonComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -59,5 +60,16 @@ export  class RegistroComponent {
       toast.error('Ocurrio un error');
 
     }
+}
+
+async submitWithGoogle() {
+  try {
+    await this._authService.signInWithGoogle();
+    toast.success('Usuario creado correctamente');
+    this._router.navigateByUrl('/tasks');
+  } catch (error){
+    toast.error('Ocurrio un error');
+
+  }
 }
 }

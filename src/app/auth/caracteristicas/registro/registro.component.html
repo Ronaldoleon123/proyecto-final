@@ -8,7 +8,7 @@
           <div class="form-container">
               <div class="form-header">
                   <h1>Crea una cuenta</h1>
-                  <button class="google-button">Continuar con Google</button>
+                  <app-google-button (onClick)="submitWithGoogle()"/>
               </div>
               <form class="form" id="signupForm" [formGroup]="form" (ngSubmit)="submit()">
                   <div class="form-group">
@@ -35,6 +35,7 @@
                       
                   </div>
                   <button type="submit" class="submit-button">Crear</button>
+
                   <p class="footer-text">
                     ¿Ya tienes una cuenta? 
                     <a routerLink ="/auth/inscripcion" class="sign-in-link">Iniciar sesión</a>
