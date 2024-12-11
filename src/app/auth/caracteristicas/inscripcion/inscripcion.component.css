@@ -1,13 +1,11 @@
 /* Body and Section */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr0cirSFVcSl6FcQk8pwxGcl1KS1JJjHzwGQ&s') no-repeat center;
-    background-size: cover;
-    background-color: #f5f5f5;
-    color: #333;
-  }
+  
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQo27136kSG3mSEeJMyHkmo1HNoQSvQnA3_g&s');
+
+
+}
+
   
   .bg-gray-50 {
     display: flex;
@@ -150,5 +148,10 @@ body {
     font-weight: normal; /* Peso normal */
     margin-top: 5px; /* Espaciado superior opcional */
     display: block; /* Asegura que se muestre en una línea nueva */
+  }
+  .forgot-password-link {
+    color: #357ae8;
+    text-decoration:double ;
+    font-weight: bolder;
   }
   
