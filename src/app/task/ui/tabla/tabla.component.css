@@ -49,4 +49,32 @@
     color: #1f2937; /* Gray-900 */
     white-space: nowrap;
   }
-  
+  /* Estilos generales para el enlace */
+.edit-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit; /* Usa el color del contexto */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.edit-link:hover {
+  color: #007bff; /* Cambia el color en hover */
+  transform: scale(1.1); /* Efecto de escala */
+}
+
+/* Estilos específicos para el ícono */
+.icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor; /* Hereda el color del enlace */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none; /* Evita cualquier relleno no deseado */
+}
+
+.icon-edit {
+  /* Aplica estilos específicos si es necesario */
+}

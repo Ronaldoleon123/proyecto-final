@@ -4,7 +4,12 @@
     
         Nueva tarea
       </a>
-      
-    <app-tabla/>
+      @if(tasksService.loading()){
+        <p>cargando...</p>
+
+      }@else {
+        <app-tabla [tasks]="tasksService.getTasks()"/>
+      }
+    
   </section>
   

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { TablaComponent } from '../../ui/tabla/tabla.component';
 import { RouterLink } from '@angular/router';
+import { TaskService } from '../../data-access/task.service';
 
 @Component({
   selector: 'app-task-list',
@@ -9,4 +10,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
-export  class TaskListComponent {}
+export  class TaskListComponent {
+  tasksService = inject(TaskService);
+
+
+}

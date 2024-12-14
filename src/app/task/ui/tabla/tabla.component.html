@@ -2,31 +2,43 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Nombre del curso</th>
+          <th>Nombre del Trabajo</th>
           <th>Codigo</th>
           <th>credito</th>
           <th>año</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="product-name">Base de datos"</td>
-          <td>IIDA52</td>
-          <td>3.0</td>
-          <td>2024</td>
-        </tr>
-        <tr>
-          <td class="product-name">Programacion Web</td>
-          <td>IIDA31 </td>
-          <td>4.0</td>
-          <td>2024</td>
-        </tr>
-        <tr>
-          <td class="product-name">Redes de computadora</td>
-          <td>IIDA55</td>
-          <td>4.0</td>
-          <td>2024</td>
-        </tr>
+        @for(task of tasks(); track task.id){
+          <tr>
+            <td class="product-name">{{task.title}}</td>
+            <td>{{task.id}}</td>
+            <td>{{task.completed ? 'Completado': 'No completado'}}</td>
+            <td>
+              <a [routerLink]="['/tasks/edit/' + task.id]" class="edit-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="icon icon-edit"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                  <path
+                    d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"
+                  />
+                  <path d="M16 5l3 3" />
+                </svg>
+              </a>
+              
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            
+            <td>No hay tareas </td>
+           
+          </tr>
+        }
       </tbody>
     </table>
   </div>
