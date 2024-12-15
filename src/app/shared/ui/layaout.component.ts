@@ -38,7 +38,17 @@ import { AuthStateService } from "../data-access/auth-state.service";
             text-decoration: none;
           "
           routerLink="/tasks"
-          >Tareas Unajma</a
+          >Tareas</a
+        >
+        <a 
+          style="
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+          "
+          routerLink="/tasks/student-profile"
+          >Perfil</a
         >
         <button
           type="button"
