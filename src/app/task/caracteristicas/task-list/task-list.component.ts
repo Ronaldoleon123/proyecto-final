@@ -8,7 +8,8 @@ import { TaskService } from '../../data-access/task.service';
   standalone: true,
   imports: [TablaComponent, RouterLink],
   templateUrl: './task-list.component.html',
-  styleUrl: './task-list.component.css'
+  styleUrl: './task-list.component.css',
+  providers: [TaskService],
 })
 export  class TaskListComponent {
   tasksService = inject(TaskService);
