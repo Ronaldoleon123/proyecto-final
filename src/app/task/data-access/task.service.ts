@@ -1,7 +1,7 @@
 import { Type } from '@angular/compiler';
 import { inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { addDoc, collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 
 
@@ -37,9 +37,19 @@ export class TaskService {
     })
   ), {initialValue: [],}
   );
+
+  getTask(id: string){
+    const docRef = doc(this._collection, id);
+    return getDoc(docRef);
+  }
   
   create(task: TaskCreate){
     return addDoc(this._collection, task);
+  }
+
+  update(task: TaskCreate, id:string ){
+    const docRef = doc(this._collection, id);
+    return updateDoc(docRef, task)
   }
 
 
